@@ -1,6 +1,9 @@
 <component name="ProjectDictionaryState">
   <dictionary name="navin">
     <words>
+      <w>crossentropy</w>
+      <w>dataset</w>
+      <w>mnist</w>
       <w>tensorflow</w>
     </words>
   </dictionary>
