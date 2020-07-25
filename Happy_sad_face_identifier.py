@@ -20,7 +20,7 @@ class myCallback(tf.keras.callbacks.Callback):
             print(f'accuracy more than 99% terminating model training')
             self.model.stop_training = True
 
-# Define instance of class
+# Define instance of callback class
 callback = myCallback()
 
 # Define model structure
