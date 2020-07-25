@@ -49,10 +49,10 @@ train_generator = train_datagen.flow_from_directory('/tmp/h-o-s/',
                                                     batch_size=10,
                                                     class_mode='binary')
 # Train the model
-model.fit(train_generator,
-          steps_per_epoch=8,
-          epochs=50,
-          verbose=1,
-          callbacks=[callback])
+model.fit_generator(train_generator,
+                    steps_per_epoch=8,
+                    epochs=50,
+                    verbose=1,
+                    callbacks=[callback])
 
 
