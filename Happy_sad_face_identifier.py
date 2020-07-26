@@ -56,3 +56,4 @@ model.fit_generator(train_generator,
                     callbacks=[callback])
 
 
+
