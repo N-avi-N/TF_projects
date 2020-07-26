@@ -106,10 +106,10 @@ validation_generator = validation_datagen.flow_from_directory(VALIDATION_DIR,
                                                               class_mode='binary',
                                                               target_size=(150, 150))
 # Fit model to the data
-model_obj = model.fit_generator(train_generator,
-                                epochs=50,
-                                verbose=1,
-                                validation_data=validation_generator)
+model_obj = model.fit(train_generator,
+                      epochs=50,
+                      verbose=1,
+                      validation_data=validation_generator)
 
 # Print train vs test loss
 
