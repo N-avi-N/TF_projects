@@ -143,3 +143,20 @@ plt.plot(epochs, loss, 'r', "Training Loss")
 plt.plot(epochs, val_loss, 'b', "Validation Loss")
 plt.title('Training and validation Loss')
 plt.figure()
+
+# Test Model
+import numpy as np
+from keras.preprocessing import image
+
+image_path = r'C:\Users\navin\Desktop\PyCharm Projects\TF projects\PetImages\dog_test_image.jpg'
+img = image.load_img(image_path, target_size=(150, 150))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+
+images = np.vstack([x])
+classes = model.predict(images, batch_size=10)
+print(classes[0])
+if classes[0] > 0.5:
+    print("image is a dog")
+else:
+    print("image is a cat")
