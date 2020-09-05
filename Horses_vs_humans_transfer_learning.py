@@ -33,7 +33,7 @@ pre_trained_model.summary()
 
 # make layer 7 as the lsat layer
 last_layer = pre_trained_model.get_layer('mixed7')
-print('last layer/mixed7 output shape : ', last_layer)
+print('last layer/mixed7 output shape : ', last_layer.output_shape)
 last_output = last_layer.output
 
 # Define a callback
@@ -61,7 +61,7 @@ x = layers.Dense(1, activation='sigmoid')(x)
 
 # Take the classification portion of the pre-trained layer and then add Add the new layers at the end of it
 model = Model(pre_trained_model.input, x)
-
+print(pre_trained_model.input,)
 # Compile the model
 model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
 
@@ -118,9 +118,9 @@ validation_generator = validation_datagen.flow_from_directory(validation_dir,
 # Fit the Model
 model_fit = model.fit(train_generator,
                       validation_data=validation_generator,
-                      # steps_per_epoch=100,
-                      epochs=50,
-                      # validation_steps=50,
+                      steps_per_epoch=10,
+                      epochs=100,
+                      validation_steps=5,
                       verbose=1,
                       callbacks=[callback])
 
