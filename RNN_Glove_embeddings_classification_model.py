@@ -102,6 +102,7 @@ with open("C:\\Users\\navin\\Desktop\\PyCharm Projects\\TF projects\\glove.txt",
         embeddings_index[word] = coefs
 
 # define matrix of the shape of embedding matrix + 1 extra column to accommodate the word
+# create embedding matrix and insert the embedding weight of a word to what the words word_index is
 embedding_matrix = np.zeros((vocab_size+1, embedding_dim))
 for word, i in word_index.items():
     embedding_vector = embeddings_index.get(word)
